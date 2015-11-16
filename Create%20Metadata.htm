@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:fileTags="RoboHelpStatus.Sent for Review" MadCap:lastBlockDepth="7" MadCap:lastHeight="855" MadCap:lastWidth="624">
+    <head><title>Create Metadata</title>
+        <link rel="StyleSheet" href="../../Resources/Images/default.css" type="text/css" />
+    </head>
+    <body>
+        <h1>Create Metadata</h1>
+        <h2>Overview</h2>
+        <p>In this lab you will learn to duplicate a Job and how to create and use the Metadata in the actual Job and how to reuse it in other Jobs.</p>
+        <p>Duplicating a Job shows how easy it is to reuse an existing Job and create a new one based on it.</p>
+        <p>You will create the Metadata first out of the duplicated Job. In the second part you will delete it and create the Metadata directly in the Repository using the Wizard without having a Job or component prepared.</p>
+        <h2>Duplicate Job</h2>
+        <p>&#160;</p>
+        <ol style="list-style: decimal;">
+            <li>Right-click on "<span style="font-weight: bold;">FirstJob 0.1</span>" 
+			 and click <b>Duplicate</b>:
+        <p><img src="../../Resources/Images/CM_duplicateJob.png" /></p></li>
+        </ol>
+        <ol start="2" style="list-style: decimal;">
+            <li>
+                <p>Enter <b>Create_Metadata</b> 
+			 for the <span style="font-weight: bold;">Input new name</span> 
+			 and click "<span style="font-weight: bold;">OK</span>":</p>
+                <p>
+                    <img src="../../Resources/Images/CM_JobMetdata.png" />
+                </p>
+            </li>
+        </ol>
+        <ol start="3" style="list-style: decimal;">
+            <li>
+                <p>Double-click the new Job <b>Create_Metadata</b> and close the <b>FirstJob</b>:</p>
+                <p>
+                    <img src="../../Resources/Images/CM_openJobMetadata.png" />
+                </p>
+            </li>
+        </ol>
+        <ol start="4" style="list-style: decimal;">
+            <li>
+                <p>Double-click the component <b>tFileInputDelimited</b> named <b>States</b> to open the Tab <b>Component</b> and click the disc <img src="../../Resources/Images/CM_IconDisc.png" />in order to save this schema in the <b>Metadata</b> to be reused further on:</p>
+                <p>
+                    <img src="../../Resources/Images/CM_SaveMetadatadisc.png" />
+                </p>
+            </li>
+        </ol>
+        <ol start="5" style="list-style: decimal;">
+            <li>
+                <p>The Wizard for creating this type of Metadata will pop-up and you enter the "<b>States</b>" for the <b>Name</b> and enter text for the <b>Purpose</b> and <b>Description.</b>Then you click <b>Next</b>:</p>
+                <p>
+                    <img src="../../Resources/Images/CM_Wizard_01.png" />
+                </p>
+            </li>
+        </ol>
+        <ol MadCap:continue="true" style="list-style: decimal;">
+            <li>
+                <p>The Wizard displays the next step and entries. <b>File</b> allows you to select another file for creating this Metadata. You will leave it to the "<b>States.csv</b>" file. The <b>File Viewer</b> shows a preview of the data. Click <b>Next</b>:</p>
+                <p>
+                    <img src="../../Resources/Images/CM_Wizard_02.png" />
+                </p>
+            </li>
+        </ol>
+        <ol start="7" style="list-style: decimal;">
+            <li>Step 3 of the Wizard offers several options like <b>Field Separator, Header, Footer, </b>several<b> CSV </b>options and a<b> Preview</b>. We do not change the settings and click <b>Next</b>:
+        <p><img src="../../Resources/Images/CM_Wizard_03.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true" style="list-style: decimal;">
+            <li>Enter "<b>StateCodes</b>" for the <b>Name</b>and enter text into the field <b>Comment</b>. Change the names for the columns in the table to "<b>StateCode</b>" and "<b>StateName</b>" and set the <b>Length</b> to "<b>2</b>" and "<b>20</b>" then click <b>Finish</b>:
+        <p><img src="../../Resources/Images/CM_Wizard_04.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true" style="list-style: decimal;">
+            <li>In the Repository expand the folder Metadata and display the new <b>StatesCodes</b> metadata:
+        <p><img src="../../Resources/Images/CM_Repository_metadata.png" /></p><p style="font-style: italic;">Note: It can now be reused in all your Jobs.</p></li>
+        </ol>
+        <p style="font-style: italic;">&#160;</p>
+        <h1>Delete and Create Metadata in the Repository</h1>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <h2>Overview</h2>
+        <p>You created the Metadata for the component <b>tFileInputDelimited</b>. You used the wizard for creating the Metadata. There are several other wizards available for standard formats.</p>
+        <p>In case you cannot use the wizards you will create a Generic Schema by entering all the data manually.</p>
+        <h2>Delete Metadata</h2>
+        <p>&#160;</p>
+        <ol>
+            <li>Expand the Metadata in the repository and right-click on <b>States0.1</b> then click <b>Delete</b>:
+        <p><img src="../../Resources/Images/CM_metadataDelete.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>The Metadata will be created again using the same name. It is still in the Recycle bin and needs to be removed, else the system will retrieve the name. Right-click on <b>Recycle bin</b> and click <b>Empty recycle bin</b>and answer with <b>Yes</b>:
+        <p><img src="../../Resources/Images/CM_Recyclebin.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Right-click <b>File delimited</b> and click <b>Create file delimited</b>:
+        <p><img src="../../Resources/Images/CM_metadatafiledelimited.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>The Wizard for creating this type of Metadata will pop-up and you enter "<b>StatesCodes</b>" for the <b>Name</b> and enter your text for the <b>Purpose</b> and <b>Description</b>:
+        <p><img src="../../Resources/Images/CM_Wizard_01.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>The Wizard displays the next step and entries. <b>Server</b> indicates that you only have a local connection for this installation and do not use remote data. <b>File</b> allows you to select another file for creating this Metadata. You will leave it set to the "<b>States.csv</b>" file. The <b>File Viewer</b> shows a preview of the data. Click <b>Next</b>:
+        <p><img src="../../Resources/Images/CM_Wizard_02.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>In step 3 of the Wizard set the <b>Field Separator </b>to<b> Comma </b>and leave <b> Header, Footer </b>empty. The<b> CSV </b>options will not be used and the<b> Preview</b>shows the correct data. Click <b>Next</b>:
+        <p><img src="../../Resources/Images/CM_Wizard_03.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Enter "<b>StatesCodes</b>" for the <b>Name</b>and enter text into the field <b>Comment</b>. Change the names for the columns in the table to "<b>StateCode</b>" and "<b>StateName</b>" and set the <b>Length</b> to "<b>2</b>" and "<b>20</b>" then click <b>Finish</b>:
+        <p><img src="../../Resources/Images/CM_Wizard_04.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>In the Repository expand the folder <b>Metadata</b> and display the new <b>StatesCodes</b> Metadata:
+        <p><img src="../../Resources/Images/CM_Repository_metadata.png" /></p></li>
+        </ol>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <h2>Next</h2>
+        <p>Now you are ready to create your Job again, using the Metadata directly in the Workspace.</p>
+    </body>
+</html>

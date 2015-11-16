@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="878" MadCap:lastWidth="624">
+    <head><title>Alphabetic Order</title>
+    </head>
+    <body>
+        <h1>Alphabetic Order</h1>
+        <h2>Overview</h2>
+        <p>In this variation of the last Job you will start to use processing components. In case you want an alphabetic order for the output and no more specific transformations you can use the <b>tSortRow</b> component. You will learn how to modify an existing Job starting again with duplicating it and redefine it afterwards. You also will pay attention to the error logs to understand how to correct your settings.</p>
+        <p>&#160;</p>
+        <h2>Duplicate and modify a Job</h2>
+        <p>&#160;</p>
+        <ol>
+            <li>Right-click on the <b>UseMetadata</b> Job and select <b>Duplicate</b>:
+        <p><img src="../../Resources/Images/AO_duplicateusematadata.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Enter <b>AscOrder</b> for the new Job (like ascending order) and click <b>OK</b>:
+        <p><img src="../../Resources/Images/AO_Ascorder.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>The Job is displayed and you want to insert the processing component <b>tSortRow</b>. One way to modify your Job, is to delete the link , to place the new component between input and output and link them again. So right-click the link and select <b>Delete</b>:
+        <p><img src="../../Resources/Images/AO_deletelink.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Move the component <b>tFileOutputXML</b> to the right to have more space for the new component. You are looking for a "sorting" component. To find such components in the Palette you enter "<b>sort</b>" and click the magnifying glass agin and select <b>tSortRow</b> out of the results:
+        <p><img src="../../Resources/Images/AO_search.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Place the component <b>tSortRow</b> in the Workspace:
+        <p><img src="../../Resources/Images/AO_placetsortrow.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>You link the three components starting with a right-click on <b>StatesCodes</b> and select <b>Row</b> then click <b>Main</b> and connect to the component <b>tSortRow</b>:
+        <p><img src="../../Resources/Images/AO_rightklickstatescodes.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Go on with the next link and see the result:
+        <p><img src="../../Resources/Images/AO_linked.png" /></p></li>
+        </ol>
+        <p>&#160;</p>
+        <h2>Place tSortRow directly</h2>
+        <p>&#160;</p>
+        <p>Another way to enter the new component between the input and output component is to place it directly between the two components.</p>
+        <p>To prepare this option, delete the <b>tSortRow</b> component and connect the input and output again. </p>
+        <ol>
+            <li>Right-click on <b>tSortRow</b> and <b>select</b> Delete:
+        <p><img src="../../Resources/Images/AO_deletetlsortrow.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Right-click on <b>StatesCodes</b> select <b>Row</b> and click <b>Main</b> and connect to <b>tFileOutputXML</b>:
+        <p><img src="../../Resources/Images/AO_linkagain.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Select the link between the components and type <b>tSortRow</b> to place the new component. See also the description of the component which is displayed:
+        <p><img src="../../Resources/Images/AO_placedirectly.png" /></p><p><img src="../../Resources/Images/AO_texttsortrow.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>The connections between the three components are set automatically:
+        <p><img src="../../Resources/Images/AO_Jobagain.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Save your Job. </li>
+        </ol>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <h2>Run the Job</h2>
+        <p>&#160;</p>
+        <ol MadCap:continue="false">
+            <li>You do not see any warnings and decide to Run the Job. Select the Tab <b>Run</b> and click <b>Run</b>:
+        <p><img src="../../Resources/Images/AO_runfisttime.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>You open the file <b>out.XML</b> in the folder <b>C:\StudentFiles</b> and see that the output is not ordered:
+        <p><img src="../../Resources/Images/AO_outputnoorder.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>To define an ascending order doubleclick the component tSortRow and click the green "+" at the bottom of the Criteria table:
+        <p><img src="../../Resources/Images/AO_ordertable.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>The field <b>StateCode</b> will be entered by the tool. Order is set to "<b>asc</b>" so the default order is ok. Lets assume you find this setting fine and you want to Run the Job again:
+        <p><img src="../../Resources/Images/AO_statecodeorder.png" />. </p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Select the Tab Run and Run the Job again. Then verify the error message. It indicates that column <b>StateCode</b> is set to "<b>num</b>" which is not correct. It has to be set to "<b>alpha</b>" to get an alphanumeric ordering:
+        <p><img src="../../Resources/Images/AO_errorlog.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>Double-click the <b>tSortRow</b> component again and select <b>"alpha"</b> for the <b>column sort num or alpha?.</b> Then Run the Job again:
+        <p><img src="../../Resources/Images/AO_changeOrder.png" /></p></li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>The Job runs without errors and displaying the file <b>out.XML</b> in the folder <b>C:\StudentFiles</b>, shows the correct output:
+        <p><img src="../../Resources/Images/AO_correctorder.png" /></p></li>
+        </ol>
+        <p>&#160;</p>
+    </body>
+</html>
