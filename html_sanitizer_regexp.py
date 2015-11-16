@@ -1,5 +1,6 @@
 import re
 import os
+import sys
 
 __author__ = 'laurent'
 
@@ -17,12 +18,14 @@ html = """
     <p>In this lab, you will discover how a user with Operation Manager privileges can use the Publisher to publish a service to Nexus and then deploy these services with the ESB Conductor.</p>
     <h3>Modifying the services</h3>
     <p>In order to be sure that your service has been deployed, you will make few changes in the simpleSOAP and simpleREST_readyToDeploy services.</p>
-    <ol>
+    <ol style="list-style: decimal;">
       <li>In the Studio in the <span style="font-weight: bold;">Repository</span>, in <strong>Services</strong>, double-click <strong>simpleSOAPPortType_simpleSOAPOperation</strong>.</li>
       <li><p>Double-click the <strong>tXMLMap</strong> component to open the Map editor.</p></li>
       <li>In the 
       <strong>response</strong> table, click 
       <span class="code">(...)</span> to edit the <strong>out</strong> field.</li>
+    </ol>
+    <ol MadCap:continue="true">
       <li>
         In the 
         <strong>Expression builder</strong>, modify the string as follows:
@@ -30,6 +33,8 @@ html = """
       </li>
       <li>Click 
       <strong>OK</strong> and then click <strong>OK</strong> to save the new mapping.</li>
+    </ol>
+    <ol start="6">
       <li>Save the service.</li>
     </ol>
     <p><span style="font-style: italic;">Note</span> Go to the Wrap-Up section for a quick summary of the concepts reviewed in this lesson.</p>
@@ -49,6 +54,11 @@ html = re.sub(r'<i>(.*?)</i>', r'<em>\1</em>', html)
 
 # Capitalize span.Code class
 html = re.sub(r'<span class="code">', r'<span class="Code">', html)
+
+# Clean up and squeeze ordered and unordered lists
+html = re.sub(r' style="list-style: decimal;"', r'', html)
+html = re.sub(r'</ol>\s*<ol MadCap:continue="true">', r'', html)
+html = re.sub(r'</ol>\s*<ol start="\d+">', r'', html)
 
 # Adjust whitespaces around <strong>, <em> and <span> tags
 html = re.sub(r'\n\s+<strong>', r'<strong>', html)
@@ -72,7 +82,10 @@ html = re.sub(r'<p>\s*</p>', r'', html)
 
 print(html)
 
-topDir = '/Users/laurent/Documents/GitHub/training-esb-advanced/Content/Labs'
+if sys.platform == 'win32':
+    topDir = r'C:\Users\lvaylet\Documents\My Projects\esb-advanced\Content\Labs'
+else:
+    topDir = r'/Users/laurent/Documents/GitHub/training-esb-advanced/Content/Labs'
 extensionToSearchFor = '.htm'
 
 for dirPath, dirNames, files in os.walk(topDir):
